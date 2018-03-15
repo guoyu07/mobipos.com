@@ -29,7 +29,8 @@
                           <div class="card">
                              <div class="card-header"><h3> Discounts</h3></div>  
                              <div class="card-body" >
-                   
+                                 <div style="float: right;">
+                                  <button href="#" class="btn btn-light btn--icon" onclick='showAjaxModal("./modules/settings/add-discount.php","Add Discount")' ><i class="zmdi zmdi-plus"></i></button></div>
                           </div>
                          </div>
                   
@@ -40,7 +41,8 @@
                           <div class="card">
                              <div class="card-header"><h3> Printers</h3></div>  
                              <div class="card-body" >
-                   
+                                 <div style="float: right;">
+                                  <button href="#" class="btn btn-light btn--icon" onclick='showAjaxModal("./modules/settings/add-printer.php","Add Printer")' ><i class="zmdi zmdi-plus"></i></button></div>
                           </div>
                          </div>
                   

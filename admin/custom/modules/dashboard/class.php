@@ -27,7 +27,7 @@ tb_app_stock_movement.date_of_movement >=CURDATE() AND tb_products.client_id=$id
 		global $db;
 		$results=$db->GetArray("SELECT * FROM tb_shops WHERE client_id=$id");
 		?>
-	
+		 <button type="button" class="btn btn-outline-secondary" onclick='show_all_branch()'>All Branches</button>
 		<?php				 	
 		 foreach($results as $row){?>
            <button type="button" class="btn btn-outline-secondary" onclick='showGraphs("./modules/dashboard/branch-details.php?id=<?php echo $row['tb_shop_id']; ?>&name=<?php echo $row['tb_shop_name']; ?>")'>

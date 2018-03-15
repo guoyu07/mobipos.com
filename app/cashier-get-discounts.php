@@ -20,7 +20,7 @@ if(isset($_REQUEST['user_id'])){
 				foreach($discounts as $row) {
 				$data=array();
 
-        $data["id"]=$row["id"];
+      		    $data["id"]=$row["id"];
 				$data["discount_name"]=$row["discount name"];
 				$data["discount_value"]=$row["discount_value"];
 

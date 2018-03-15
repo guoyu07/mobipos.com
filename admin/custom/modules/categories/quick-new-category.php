@@ -24,7 +24,7 @@ $id=$_REQUEST['id'];
                         </div>
                     
                            </div>  
-                           <div class="row">  <a href="#" class="btn btn-success" style="float: right;" onclick="new_category('2')">Save</a></div>
+                           <div class="row">  <a href="#" class="btn btn-success" style="float: right;" onclick="new_category('2','2')">Save</a></div>
                           
                         </div>
                     </div>

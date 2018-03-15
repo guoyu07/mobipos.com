@@ -1,17 +1,22 @@
 <?php
 
-include('controllers/db.php');
+include("../db.php");
 
 global $db;
+@session_start();
 
 $response;
-if(isset($_REQUEST['name'])
-&&isset($_REQUEST['mac_address'])
-&&isset($_REQUEST['branch_id'])){
 
-	$name=$_REQUEST['name'];
-  $mac=$_REQUEST['mac_address'];
-  $branch_id=$_REQUEST['branch_id'];
+$user_id=$_SESSION['user']['userid'];
+if(isset($_REQUEST['printer_mac'])
+&&isset($_REQUEST['printer_name'])
+&&isset($_REQUEST['branch'])){
+
+	$name=$_REQUEST['printer_name'];
+  $mac=$_REQUEST['printer_mac'];
+  $branch=$_REQUEST['branch'];
+
+	$branch_id=$db->GetOne("select tb_shop_id from tb_shops where tb_shop_name = '$branch' AND client_id='$user_id'");
 
 	$data=array();
 

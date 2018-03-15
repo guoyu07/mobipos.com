@@ -87,11 +87,17 @@ function new_shop(){
 
 }
 
-function new_category(val){
+function new_category(val,all_branches){
 	var category=document.getElementById("this_category").value;
-	var branch=document.getElementById("this_cat_branch").value;
+	
 
-	var values="category_name="+category+"&branch="+branch;
+	if(all_branches=="0"){
+		var branch=document.getElementById("this_cat_branch").value;
+		var values="category_name="+category+"&branch="+branch;
+	}else if(all_branches=="1"){
+		var values="category_name="+category+"&branch=0";
+	}
+	
 	var url="./data/apis/category/new-category.php?"+values;
 
 
@@ -272,4 +278,90 @@ function new_tax(){
 
 }
 
+function new_printer(){
+	var printer_name=document.getElementById("this_printer_name").value;
+	var printer_mac=document.getElementById("this_printer_mac").value;
+	var this_cat_branch=document.getElementById("this_cat_branch").value;
+	var url="./data/apis/settings/add-printer.php?printer_name="+printer_name+"&printer_mac="+
+	printer_mac+"&branch="+this_cat_branch;
+
+		$.ajax({
+			url:url,
+			type:"GET",
+			url:url,
+			dataType:"json",
+			success: function(response){
+
+				var newData = response.success;
+				if(newData==1){
+					 swal({
+                    title: 'Settings Status!',
+                    text:response.message,
+                    type: 'success',
+                    buttonsStyling: false,
+                    confirmButtonClass: 'btn btn-sm btn-light',
+                    background: '#4A7C43'
+                });
+										
+				//	jQuery('#modal_ajax').toggle();
+					open_module('./modules/settings/all.php');	
+				}else{
+					 swal({
+                    title: 'Settings Status!',
+                    text:response.message,
+                    type: 'warning',
+                    buttonsStyling: false,
+                    confirmButtonClass: 'btn btn-sm btn-light',
+                    background: '#4A7C43'
+                });
+
+				}
+			}
+
+		});
+
+}
+
+function new_discount(){
+	var discount_name=document.getElementById("this_discount_name").value;
+	var discount_value=document.getElementById("this_discount_value").value;
+	var url="./data/apis/settings/add-discount.php?name="+discount_name+"&value="+
+	discount_value;
+
+		$.ajax({
+			url:url,
+			type:"GET",
+			url:url,
+			dataType:"json",
+			success: function(response){
+
+				var newData = response.success;
+				if(newData==1){
+					 swal({
+                    title: 'Settings Status!',
+                    text:response.message,
+                    type: 'success',
+                    buttonsStyling: false,
+                    confirmButtonClass: 'btn btn-sm btn-light',
+                    background: '#4A7C43'
+                });
+										
+				//	jQuery('#modal_ajax').toggle();
+					open_module('./modules/settings/all.php');	
+				}else{
+					 swal({
+                    title: 'Settings Status!',
+                    text:response.message,
+                    type: 'warning',
+                    buttonsStyling: false,
+                    confirmButtonClass: 'btn btn-sm btn-light',
+                    background: '#4A7C43'
+                });
+
+				}
+			}
+
+		});
+
+}
 

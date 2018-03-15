@@ -21,8 +21,10 @@
                        <div class="card-header"><h3>Categories</h3></div>  
                    <div class="card-body">
                     <div>
-                      <button class="btn btn-secondary  btn--icon" 
-                            onclick="dataredirect('./modules/categories/new-category.php','New Category',false)" style="float: center;"><i class="zmdi zmdi-plus"></i></button>
+                       <button class="btn btn-secondary  btn--icon" 
+                           onclick="dataredirect('./modules/categories/new-category.php?all_branches=0','New Category',false)"  style="float: center;"><i class="zmdi zmdi-plus"></i></button>
+                    <!--   <button class="btn btn-secondary  btn--icon" 
+                            onclick="dataredirect('./modules/categories/new-category.php','New Category',false)" style="float: center;"><i class="zmdi zmdi-plus"></i></button> -->
 
                     </div>
                        

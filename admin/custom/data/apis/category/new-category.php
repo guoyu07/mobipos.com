@@ -10,17 +10,32 @@ $user_id=$_SESSION['user']['userid'];
 $response;
 if(isset($_REQUEST['category_name'])&&isset($_REQUEST['branch'])){
 
-	$cat_name=$_REQUEST['category_name'];
-	$branch=$_REQUEST['branch'];
-
-	$shop_id=$db->GetOne("select tb_shop_id from tb_shops where tb_shop_name = '$branch' AND client_id='$user_id'");
+	if($_REQUEST['branch']=="0"){
+		$cat_name=$_REQUEST['category_name'];
+		$branch=$_REQUEST['branch'];
 	
-	$data=array();
+		$data=array();
 
-	$data['category_name']=$cat_name;
-	$data['client_id']=$user_id;
-	$data['shop_id']=$shop_id;
-	$data['active_status']='1';
+		$data['category_name']=$cat_name;
+		$data['client_id']=$user_id;
+		$data['all_branches']="1";
+		$data['active_status']='1';
+	
+	}else{
+		$cat_name=$_REQUEST['category_name'];
+		$branch=$_REQUEST['branch'];
+
+		$shop_id=$db->GetOne("select tb_shop_id from tb_shops where tb_shop_name = '$branch' AND client_id='$user_id'");
+	
+		$data=array();
+
+		$data['category_name']=$cat_name;
+		$data['client_id']=$user_id;
+		$data['shop_id']=$shop_id;
+		$data['active_status']='1';
+	
+	}
+
 	
 	$db->AutoExecute('tb_categories',$data, 'INSERT');
 
